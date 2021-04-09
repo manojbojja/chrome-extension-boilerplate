@@ -1,0 +1,25 @@
+{
+    "name": "Xola weather",
+    "description": "Basic weather app",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "contentSettings",
+      "http://*/*", "https://*/*"
+    ],
+    "browser_action": {
+		"default_icon": "icon48.png",
+		"default_title": "XOLA"
+	},
+  "web_accessible_resources" : ["inject.js"],
+  "content_scripts": [
+    {
+      "matches": ["http://xola.local/*", "https://c02.xola.com/*"],
+      "js": ["bower_components/jquery/dist/jquery.js", "content-script.js"],
+      "css": ["content-css.css"]
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}
+  
